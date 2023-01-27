@@ -20,12 +20,21 @@ const images = [
   },
 ];
 
-const createGalleryItem = ({ url, alt }) =>
-  `<li><img src="${url}" alt="${alt}" width = 200 height = 150></li>`;
-const galleryMarkup = images.reduce(
-  (acc, item) => acc + createGalleryItem(item),
-  ""
-);
-const galleryList = document.querySelector("#gallery");
-galleryList.insertAdjacentHTML("afterbegin", galleryMarkup);
-galleryList.setAttribute("style", "list-style-type:none; display: flex;");
+const galleryListEl = document.querySelector("ul");
+const element = images
+  .map(function ({ url, alt }) {
+    return `<li><img src = '${url}' alt = '${alt}' width="320"></li>`;
+  })
+  .join("");
+galleryListEl.insertAdjacentHTML("afterbegin", element);
+
+document.body.style.margin = '0px';
+
+
+galleryListEl.style.cssText = `display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  `;

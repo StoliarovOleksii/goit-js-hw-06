@@ -10,9 +10,10 @@ myInput.addEventListener('input', newInput);
 
 function newInput(e) {
     //console.log(e.currentTarget);
-    mySpan.textContent = e.currentTarget.value;
 
     if (e.currentTarget.value === "") {
         mySpan.textContent = 'Anonymous'
     }
+    mySpan.textContent = e.currentTarget.value;
+    return;
 };
